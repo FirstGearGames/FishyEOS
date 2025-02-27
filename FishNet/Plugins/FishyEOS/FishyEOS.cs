@@ -327,11 +327,20 @@ namespace FishNet.Transporting.FishyEOSPlugin
         }
 
         /// <summary>
-        /// EOS Not Used
+        /// Sets which address the client will connect to.
         /// </summary>
+        /// <param name="address">Address client will connect to as ProductUserId.ToString(). For example lobby owner.</param>
         public override void SetClientAddress(string address)
         {
-            _ = address;
+            RemoteProductUserId = address;
+        }
+        
+        /// <summary>
+        /// Returns which address the client will connect to. Can be converted with ProductUserId.FromString().
+        /// </summary>
+        public override string GetClientAddress()
+        {
+            return RemoteProductUserId;
         }
 
         /// <summary>
